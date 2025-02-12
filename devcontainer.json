@@ -2,10 +2,8 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/alpine
 {
 	"name": "WMCore",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	// "image": "registry.cern.ch/cmsweb/wmcore-dev:20240925-stable",
 	"dockerComposeFile": "./docker-compose.yml",
-	"service": "wmcore-dev2",
+	"service": "wmcore-dev",
 	"workspaceFolder": "/workspaces/WMCore",
 	"shutdownAction": "stopCompose",
 

@@ -31,6 +31,9 @@ docker compose exec -it wmcore-dev /bin/bash
 
 # Source unit test environment
 source .devcontainer/env_unittest.sh
+
+# Stop all containers
+docker compose down
 ```
 
 ## Configuration
@@ -63,3 +66,14 @@ Unit test secrets are located in the `WMAgent_unittest.secrets` file.
 | `RUCIO_HOST`      | Rucio server to connect to         |                   |
 | `RUCIO_AUTH`      | Rucio auth server to connect to    |                   |
 | `GRAFANA_TOKEN`   | Token to connect to Grafana        | `test_fake_token` |
+
+## Integration with VSCode
+This repository also contains a `devcontainer.json` configuration file for integration with VSCode. This can be pretty opinionated, such as adding tools a developer may use normally. In this case, forking this repo is suggested.
+
+1. Clone this repo in WMCore `.devcontainer`. This repo should be located under `WMCore/.devcontainer`.
+```bash
+git clone https://github.com/d-ylee/wmcore-development .devcontainer`
+```
+
+2. Open `WMCore` in VSCode.
+3. Reopen the repository in a container.
