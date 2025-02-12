@@ -6,14 +6,16 @@ services:
   mariadb:
     platform: linux/amd64
     image: mariadb:${MDB_TAG}
-    container_name: mariadb2
+    container_name: mariadb
     volumes:
       - "./mariadb/my.cnf:/etc/mysql/conf.d/my.cnf"
-      - "./mariadb/init.sql:/docker-entrypoint-initdb.d/init.sql"
+      - "./mariadb/init.sh:/docker-entrypoint-initdb.d/init.sh"
     ports:
       - 3306:3306
     environment:
       - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+    env_file:
+      - ./WMAgent_unittest.secrets
     network_mode: "host"
 
   couchdb:
@@ -27,19 +29,19 @@ services:
       - 5984:5984
     network_mode: "host"
 
-  wmcore-dev2:
+  wmcore-dev:
     platform: linux/amd64
     image: registry.cern.ch/cmsweb/wmcore-dev2:latest
-    container_name: wmcore-dev2
+    container_name: wmcore-dev
     volumes:
       - *certs
-      - ..:/workspaces/WMCore:cached
+      - ${WMCORE_CODE_DIR}:/workspaces/WMCore:cached
       - "./WMAgent_unittest.secrets:/data/admin/wmagent/WMAgent.secrets"
     environment:
-      - X509_USER_CERT=/workspaces/WMCore/certs/usercert.pem
-      - X509_USER_KEY=/workspaces/WMCore/certs/userkey_nopwd.pem
-      - X509_HOST_CERT=/workspaces/WMCore/certs/usercert.pem
-      - X509_HOST_KEY=/workspaces/WMCore/certs/userkey_nopwd.pem
+      - X509_USER_CERT=/data/certs/usercert.pem
+      - X509_USER_KEY=/data/certs/userkey_nopwd.pem
+      - X509_HOST_CERT=/data/certs/usercert.pem
+      - X509_HOST_KEY=/data/certs/userkey_nopwd.pem
       - DEVCONTAINER_DIR=/workspaces/WMCore/${DEVCONTAINER_DIRNAME}
     env_file:
       - ./WMAgent_unittest.secrets
@@ -47,23 +49,3 @@ services:
       - mariadb
       - couchdb
     network_mode: "host"
-
-  # wmcore-dev:
-  #   platform: linux/amd64
-  #   image: registry.cern.ch/cmsweb/wmcore-dev:${WMDEV_TAG}
-  #   container_name: wmcore-dev
-  #   volumes:
-  #     - *certs
-  #     - ..:/workspaces/WMCore:cached
-  #     - "./WMAgent_unittest.secrets:/data/admin/wmagent/WMAgent.secrets"
-  #   environment:
-  #     - X509_USER_CERT=/data/certs/usercert.pem
-  #     - X509_USER_KEY=/data/certs/userkey_nopwd.pem
-  #     - X509_HOST_CERT=/data/certs/usercert.pem
-  #     - X509_HOST_KEY=/data/certs/userkey_nopwd.pem
-  #   env_file:
-  #     - ./WMAgent_unittest.secrets
-  #   depends_on:
-  #     - mariadb
-  #     - couchdb
-  #   network_mode: "host"
