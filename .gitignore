@@ -1,0 +1,7 @@
+# Directories used by WMAgent, Databases
+srv
+admin
+
+# Docker Compose Configuration
+.env
+*.swp

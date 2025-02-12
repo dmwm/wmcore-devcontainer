@@ -1,0 +1,4 @@
+MDB_TAG=10.6.5
+COUCH_TAG=3.2.2
+CERT_DIR=../certs
+WMDEV_TAG=latest

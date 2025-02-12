@@ -1,0 +1,37 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/alpine
+{
+	"name": "WMCore",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// "image": "registry.cern.ch/cmsweb/wmcore-dev:20240925-stable",
+	"dockerComposeFile": "./docker-compose.yml",
+	"service": "wmcore-dev2",
+	"workspaceFolder": "/workspaces/WMCore",
+	"shutdownAction": "stopCompose",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"extensions": {
+					"verifySignature": false
+				}
+			},
+			"extensions": [
+				"tamasfe.even-better-toml",
+				"ms-python.python"
+			]
+		}
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "sudo dnf install -y ripgrep"
+}
