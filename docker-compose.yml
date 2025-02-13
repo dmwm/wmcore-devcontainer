@@ -4,7 +4,7 @@ x-volumes:
 
 services:
   mariadb:
-    platform: linux/amd64
+    platform: ${PLATFORM}
     image: mariadb:${MDB_TAG}
     container_name: mariadb
     volumes:
@@ -19,7 +19,7 @@ services:
     network_mode: "host"
 
   couchdb:
-    platform: linux/amd64
+    platform: ${PLATFORM}
     image: registry.cern.ch/cmsweb/wmagent-couchdb:${COUCH_TAG}
     container_name: couchdb
     volumes:
@@ -30,7 +30,7 @@ services:
     network_mode: "host"
 
   wmcore-dev:
-    platform: linux/amd64
+    platform: ${PLATFORM}
     image: registry.cern.ch/cmsweb/wmcore-dev2:latest
     container_name: wmcore-dev
     volumes:

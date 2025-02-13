@@ -1,7 +1,8 @@
-MDB_TAG=10.6.5
+MDB_TAG=10.6.19
 COUCH_TAG=3.2.2
 WMDEV_TAG=latest-stable
 CERT_DIR=../certs
 DEVCONTAINER_DIRNAME=.devcontainer
 MARIADB_ROOT_PASSWORD=userdevpass
 WMCORE_CODE_DIR=~/src/WMCore
+PLATFORM=linux/amd64
