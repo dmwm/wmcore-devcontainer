@@ -68,6 +68,16 @@ Unit test secrets are located in the `WMAgent_unittest.secrets` file.
 | `RUCIO_AUTH`      | Rucio auth server to connect to    |                   |
 | `GRAFANA_TOKEN`   | Token to connect to Grafana        | `test_fake_token` |
 
+### Certificates
+Currently, the certificates and keys are located in `$CERT_DIR/usercert.pem` and `$CERT_DIR/userkey_nopwd.pem`. This was created following instructions here: https://cms-wmcore.docs.cern.ch/development/setup-wmcore-unittest/#5-authenticate-yourself-when-running-unittests
+
+```
+openssl pkcs12 -in ~/certs-mount/myCertificate.p12 -clcerts -nokeys -out ~/certs/usercert.pem`
+openssl pkcs12 -in ~/certs-mount/myCertificate.p12 -nocerts -out ~/certs/userkey.pem
+chmod 400 ~/certs/userkey.pem
+openssl rsa -in ~/certs/userkey.pem -out ~/certs/userkey_nopwd.pem
+```
+
 ## Integration with VSCode
 This repository also contains a `devcontainer.json` configuration file for integration with VSCode. This can be pretty opinionated, such as adding tools a developer may use normally. In this case, forking this repo is suggested.
 
