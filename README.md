@@ -15,19 +15,26 @@ cd <wmcore code directory>
 # Clone this repository
 git clone https://github.com/d-ylee/wmcore-development .devcontainer`
 
+# cd to your container area
+cd .devcontainer
+
 # Copy `env-template` to `.env` and
 # modify CERT_DIR, WMCORE_CODE_DIR
 cp env-template .env
+
+# optionally: adjust your .env file if necessary
 
 # Log into registry
 docker login registry.cern.ch
 
 # Start containers
-cd .devcontainer
 docker compose up -d wmcore-dev
 
 # Enter wmcore-dev container
 docker compose exec -it wmcore-dev /bin/bash
+
+# now you should get prompt within docker image where you should cd to /workspaces/WMCore
+[root@docker-desktop cmsbld]# cd /workspaces/WMCore
 
 # Source unit test environment
 source .devcontainer/env_unittest.sh
