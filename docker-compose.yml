@@ -31,7 +31,7 @@ services:
 
   wmcore-dev:
     platform: ${PLATFORM}
-    image: registry.cern.ch/cmsweb/wmcore-dev2:latest
+    image: registry.cern.ch/cmsweb/wmcore-dev:latest
     container_name: wmcore-dev
     volumes:
       - *certs

@@ -1,8 +1,15 @@
 MDB_TAG=10.6.19
 COUCH_TAG=3.2.2
 WMDEV_TAG=latest-stable
+
+# location of user's certificates, it can be ~/.globus or any other area
 CERT_DIR=../certs
+
 DEVCONTAINER_DIRNAME=.devcontainer
 MARIADB_ROOT_PASSWORD=userdevpass
+
+# location of WMCore repository
 WMCORE_CODE_DIR=~/src/WMCore
+
+# docker image architecture to use
 PLATFORM=linux/amd64
