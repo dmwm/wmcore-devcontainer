@@ -41,6 +41,13 @@ source .devcontainer/env_unittest.sh
 
 # Stop all containers
 docker compose down
+
+# Updating or adding dependencies
+pip install <dependency>
+
+# Stopping containers
+# In the devcontainer directory
+docker compose down
 ```
 
 ## Configuration
@@ -95,3 +102,8 @@ git clone https://github.com/d-ylee/wmcore-development .devcontainer
 
 2. Open `WMCore` in VSCode.
 3. Reopen the repository in a container.
+
+## Caveats
+On macOS, since Docker/Podman containers are run in a virtual machine, bind mounts may be slow. Future developments can consider cloning the dmwm/WMCore repository in a named volume, or a container volume
+
+Some tips here: https://code.visualstudio.com/remote/advancedcontainers/improve-performance#_use-a-named-volume-for-your-entire-source-tree
