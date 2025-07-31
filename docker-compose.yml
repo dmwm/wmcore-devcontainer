@@ -33,6 +33,7 @@ services:
     platform: ${PLATFORM}
     image: registry.cern.ch/cmsweb/wmcore-development:py3.12-2.4.2rc7
     container_name: wmcore-dev
+    user: wmdev
     volumes:
       - *certs
       - ${WMCORE_CODE_DIR}:/workspaces/WMCore:cached
