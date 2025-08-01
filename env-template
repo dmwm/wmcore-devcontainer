@@ -1,6 +1,7 @@
 MDB_TAG=10.6.19
 COUCH_TAG=3.2.2
-WMDEV_TAG=latest-stable
+# Tag for the wmcore-development service
+WMDEV_TAG=py3.12-2.4.2rc8
 
 # location of user's certificates, it can be ~/.globus or any other area
 CERT_DIR=../certs
