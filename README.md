@@ -13,7 +13,7 @@ Scripts and configuration to develop in WMCore containers
 cd <wmcore code directory>
 
 # Clone this repository
-git clone https://github.com/d-ylee/wmcore-development .devcontainer`
+git clone https://github.com/dmwm/wmcore-development .devcontainer`
 
 # cd to your container area
 cd .devcontainer
@@ -97,7 +97,7 @@ This repository also contains a `devcontainer.json` configuration file for integ
 
 1. Clone this repo in `WMCore/.devcontainer`. This repo must be located under `WMCore/.devcontainer`.
 ```bash
-git clone https://github.com/d-ylee/wmcore-development .devcontainer
+git clone https://github.com/dmwm/wmcore-development .devcontainer
 ```
 
 2. Open `WMCore` in VSCode.
